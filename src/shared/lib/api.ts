@@ -10,7 +10,9 @@ export const apiPrefix = 'https://api.github.com/graphql'
 const baseQuery = fetchBaseQuery({
   baseUrl: apiPrefix,
   headers: {
-    Authorization: 'bearer ' + import.meta.env.VITE_GITHUB_TOKEN,
+    Authorization:
+      'bearer ' + import.meta.env.VITE_GITHUB_TOKEN ||
+      JSON.parse(localStorage.getItem('VITE_GITHUB_TOKEN') || ''),
   },
 })
 
